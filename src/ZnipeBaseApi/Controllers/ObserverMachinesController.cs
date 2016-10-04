@@ -2,25 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ZnipeBaseApi.Controllers
 {
+    [EnableCors("AllowAll")]
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class ObserverMachinesController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly ZnipeBaseDbContext _context;
+
+        public ObserverMachinesController(ZnipeBaseDbContext context)
         {
-            return new string[] { "value1", "value2" };
+            _context = context;
+        }
+        // GET: api/values
+        [HttpGet]
+        public IEnumerable<ObserverMachine> Get()
+        {
+            return _context.ObserverMachines;
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            return "value123";
         }
 
         // POST api/values
