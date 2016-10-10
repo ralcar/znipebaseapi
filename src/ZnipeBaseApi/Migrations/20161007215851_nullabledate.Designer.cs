@@ -8,9 +8,10 @@ using ZnipeBaseApi;
 namespace ZnipeBaseApi.Migrations
 {
     [DbContext(typeof(ZnipeBaseDbContext))]
-    partial class ZnipeBaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161007215851_nullabledate")]
+    partial class nullabledate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")

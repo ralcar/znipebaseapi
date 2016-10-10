@@ -12,11 +12,11 @@ namespace ZnipeBaseApi.Controllers
 {
     [EnableCors("AllowAll")]
     [Route("api/[controller]")]
-    public class ObserverMachinesController : Controller
+    public class ObserverController : Controller
     {
         private readonly ZnipeBaseDbContext _context;
 
-        public ObserverMachinesController(ZnipeBaseDbContext context)
+        public ObserverController(ZnipeBaseDbContext context)
         {
             _context = context;
         }
@@ -24,7 +24,7 @@ namespace ZnipeBaseApi.Controllers
         [HttpGet]
         public IEnumerable<ObserverMachine> Get()
         {
-            return _context.ObserverMachines;
+            return _context.Observer;
         }
 
         // GET api/values/5

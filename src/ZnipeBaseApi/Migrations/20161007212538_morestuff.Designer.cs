@@ -8,9 +8,10 @@ using ZnipeBaseApi;
 namespace ZnipeBaseApi.Migrations
 {
     [DbContext(typeof(ZnipeBaseDbContext))]
-    partial class ZnipeBaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161007212538_morestuff")]
+    partial class morestuff
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -89,14 +90,11 @@ namespace ZnipeBaseApi.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Created")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("Created");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasAnnotation("MaxLength", 150);
+                    b.Property<string>("Name");
 
-                    b.Property<DateTime?>("ScheduledStart");
+                    b.Property<DateTime>("ScheduledStart");
 
                     b.HasKey("Id");
 
